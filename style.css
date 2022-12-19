@@ -44,7 +44,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--open-sans);
+  font-family: var(--raleway);
+}
+
+button {
+  cursor: pointer;
 }
 
 main {
@@ -96,8 +100,7 @@ header > svg {
   grid-template-areas: "secure-image"
                        "secure-heading"
                        "secure-paragraph"
-                       "email"
-                       "button";
+                       "secure-buttons";
   justify-items: center;
   margin-bottom: 9rem;
 }
@@ -127,8 +130,13 @@ header > svg {
   margin-bottom: 2rem;
 }
 
-.secure-container > input {
-  grid-area: email;
+.secure-buttons {
+  grid-area: secure-buttons;
+  display: flex;
+  flex-direction: column;
+}
+
+.secure-buttons > input {
   width: 88%;
   height: 4rem;
   padding-left: 2rem;
@@ -138,15 +146,14 @@ header > svg {
   box-shadow: 2 3 6 rgba(0, 0, 0, 0.2);
 }
 
-.secure-container > input::placeholder {
+.secure-buttons > input::placeholder {
   color: var(--light-gray);
   letter-spacing: .3px;
   font-family: var(--raleway);
   font-size: 1.2rem;
 }
 
-.secure-container > button {
-  grid-area: button;
+.secure-buttons > button {
   width: 88%;
   height: 4rem;
   background-color: var(--bright-blue);
@@ -157,6 +164,10 @@ header > svg {
   font-weight: 700;
   font-size: 1.4rem;
   box-shadow: 2px 3px 6px var(--light-gray);
+}
+
+.secure-buttons > button:hover {
+ background-color: #6C9BFF;   
 }
 
 .productive-container {
@@ -206,11 +217,19 @@ header > svg {
   border-bottom: 2px solid var(--moderate-cyan);
   padding-bottom: .5rem;
   margin-bottom: 4rem;
+  cursor: pointer;
 }
 
 .redirect-container > p {
   font-size: 1.1rem;
   color: var(--moderate-cyan);
+}
+
+
+
+.redirect-container > p:hover {
+  color: #71DFCC;
+  border-bottom-color: #71DFCC;
 }
 
 .testimonial-portion {
@@ -219,7 +238,7 @@ header > svg {
   flex-direction: column;
   text-align: left;
   margin-bottom: 8.19rem;
-  box-shadow: 0 0 8px 4px hsla(0, 0%, 75%, 0.4);
+  box-shadow: 0 0 8px 4px hsla(0, 0%, 75%, 0.3);
   padding: 2rem;
   max-width: 280px;
 }
@@ -281,6 +300,7 @@ header > svg {
 }
 
 .early-access-container > p:nth-child(1) {
+  grid-area: early-access-header;
   margin-top: 5.4rem;
   margin-bottom: 1.6rem;
   font-size: 1.8rem;
@@ -290,6 +310,7 @@ header > svg {
 }
 
 .early-access-container > p:nth-child(2) {
+  grid-area: early-access-p;
   font-size: 1.4rem;
   line-height: 2.1rem;
   max-width: 28rem;
@@ -297,6 +318,7 @@ header > svg {
 }
 
 .early-access-container > input {
+  grid-area: early-access-input;
   width: 75%;
   height: 32px;
   padding-left: 1rem;
@@ -306,6 +328,10 @@ header > svg {
   box-shadow: 1px 1px 3px hsla(243, 87%, 12%, 0.4);
 }
 
+.early-access-container > input:focus {
+  outline: 1px solid #EF4877;
+}
+
 .early-access-container > input::placeholder {
   color: var(--light-gray);
   font-family: var(--raleway);
@@ -313,6 +339,7 @@ header > svg {
 }
 
 .early-access-container > button {
+  grid-area: early-access-button;
   width: 75%;
   height: 32px;
   font-family: var(--raleway);
@@ -325,6 +352,10 @@ header > svg {
   margin-bottom: 7.1rem;
   border-radius: 1.47px;
   box-shadow: 1px 1px 3px hsla(243, 87%, 12%, 0.4);
+}
+
+.early-access-container > button:hover {
+  background-color: #6C9BFF;
 }
 
 .end-container {
@@ -352,6 +383,7 @@ header > svg {
 }
 
 .fylo-information-container {
+  grid-area: fylo-information-container;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
@@ -385,6 +417,7 @@ header > svg {
 }
 
 .faq-link-1 {
+  grid-area: faq-link-1;
   margin-bottom: 3.2rem;
 }
 
@@ -393,11 +426,17 @@ header > svg {
   color: white;
 }
 
+.faq-link > a:hover {
+  color: #6C9BFF;
+}
+
 .faq-link-2 {
+  grid-area: faq-link-2;
   margin-bottom: 3.2rem;
 }
 
 .icon-container {
+  grid-area: icon-container;
   display: flex;
   justify-self: center;
   gap: 1rem;
@@ -412,4 +451,206 @@ header > svg {
   padding-top: .7rem;
   border: 1px solid white;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.icon-container > i:hover {
+  border: 1px solid #6C9BFF;
+  color: #6C9BFF;
+}
+
+@media (min-width: 600px) {
+
+  main {
+    max-width: 1440px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "header header"
+    "secure-container secure-container"
+    "productive-container productive-container"
+    "early-access-container early-access-container"
+    "end-container end-container";
+  }
+
+  header > svg {
+    width: 166px;
+    height: 100px;
+  }
+
+  .header-links > a {
+    font-size: 1.6rem;
+  }
+
+  .secure-container {
+    max-width: 1440px;
+    grid-template-columns: subgrid;
+    grid-template-areas: "secure-heading secure-image"
+                         "secure-paragraph secure-image"
+                         "secure-buttons secure-image";
+    text-align: left;
+    margin-bottom: 16.4rem;
+    justify-items: baseline;
+  }
+
+  .secure-container > p {
+    max-width: revert;
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.53px;
+    align-self: baseline;
+    padding-right: 10rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .secure-container > h2 {
+    margin-top: 7rem;
+    font-size: 4rem;
+    line-height: 6rem;
+    font-weight: 700;
+    align-self: end;
+    padding-right: 3rem;
+  }
+
+  .secure-container > img {
+    max-width: 64rem;
+  }
+
+  .secure-buttons {
+    width: 100%;
+    flex-direction: row;
+    gap: 1.6rem;
+    margin-bottom: 18rem;
+    padding-right: 6.5rem;
+  }
+
+  .secure-buttons > input {
+    width: revert;
+    flex-grow: 2;
+  }
+  
+  .secure-buttons > button {
+    width: revert;
+    width: 25rem;
+    margin-right: 10rem;
+  }
+
+  .productive-container {
+    max-width: 1440px;
+    grid-template-columns: subgrid;
+    grid-template-areas:"productive-heading productive-image"
+                        "productive-p-1 productive-image"
+                        "productive-p-2 productive-image"
+                        "redirect-container productive-image"
+                        "testimonial-portion productive-image";
+    justify-items: baseline;
+    text-align: left;
+    position: relative;
+  }
+
+  .productive-container > h4 {
+    font-size: 4rem;
+    position: relative;
+    bottom: 1rem;
+  }
+
+  .productive-container > p:nth-child(3) {
+    font-size: 1.6rem;
+    max-width: 52.9rem;
+    line-height: 2.4rem;
+  }
+
+  .productive-container > p:nth-child(4) {
+    font-size: 1.6rem;
+    max-width: 52.9rem;
+    line-height: 2.4rem;
+  }
+
+  .redirect-container {
+   width: 17.6rem;
+  }
+
+  .redirect-container > p {
+    font-size: 1.6rem;
+  }
+
+  .testimonial-portion {
+    margin-left: 1.1rem
+  }
+
+  .testimonial-profile > img {
+    max-width: 3.2rem;
+  }
+  
+  .user-information > p:nth-child(1) {
+    font-size: 1.1rem;
+    letter-spacing: 0.55px;
+  }
+
+  .user-information > p:nth-child(2) {
+    font-size: .8rem;
+  }
+
+  .productive-container > img {
+    max-width: 54.2rem;
+    height: 40.9rem;
+  }
+
+  .early-access-container {
+    max-width: 1440px;
+    grid-template-columns: subgrid;
+    grid-template-areas: "early-access-header early-access-input"
+                         "early-access-p early-access-button";
+    align-items: center;
+    justify-items: baseline;
+    text-align: left;
+    padding: 4rem 6rem;
+    position: relative;
+  }
+
+  .early-access-container > p:nth-child(1) {
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+  }
+  
+  .early-access-container > p:nth-child(2) {
+    font-size: 1.6rem;
+    max-width: 51rem;
+    line-height: 2.6rem;
+  }
+  
+  .early-access-container > input {
+    margin-top: 7rem;
+    margin-bottom: unset;
+    width: 48rem;
+    height: 4.8rem;
+  }
+
+  .early-access-container > input::placeholder {
+    font-size: 1.2rem;
+  }
+  
+  .early-access-container > button {
+    margin-top: .5rem;
+    width: 20rem;
+    height: 4.8rem;
+    position: relative;
+    top: 2.5rem;
+  }
+
+  .end-container {
+    max-width: 1440px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "end-image end-image end-image end-image"
+                       "fylo-information-container faq-link-1 faq-link-2 icon-container";
+    padding: 5rem 6rem;
+  }
+
+  .faq-link-1 {
+    justify-self: center;
+  }
+  
+  .faq-link-2 {
+    justify-self: center;
+    margin-right: 2rem;
+  }
+
 }
