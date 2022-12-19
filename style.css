@@ -144,6 +144,8 @@ header > svg {
   border: 1px solid var(--desaturated-blue);
   border-radius: 3px;
   box-shadow: 2 3 6 rgba(0, 0, 0, 0.2);
+  transition: outline 0.1s ease-in,
+              border 0.1s ease-out;
 }
 
 .secure-buttons > input::placeholder {
@@ -151,6 +153,11 @@ header > svg {
   letter-spacing: .3px;
   font-family: var(--raleway);
   font-size: 1.2rem;
+}
+
+.secure-buttons > input:focus {
+  outline: 1px solid #EF4877;
+  border: none;
 }
 
 .secure-buttons > button {
@@ -164,6 +171,7 @@ header > svg {
   font-weight: 700;
   font-size: 1.4rem;
   box-shadow: 2px 3px 6px var(--light-gray);
+  transition: background-color 0.1s ease-in;
 }
 
 .secure-buttons > button:hover {
@@ -225,9 +233,22 @@ header > svg {
   color: var(--moderate-cyan);
 }
 
+.redirect-container > p,
+.redirect-container {
+  transition: color 0.1s ease-in,
+              border-bottom-color 0.1s ease-in;
+}
 
+.redirect-container > svg {
+  
+}
 
-.redirect-container > p:hover {
+.redirect-container > svg path {
+  fill: var(--moderate-cyan);
+}
+
+.redirect-container:hover > p,
+.redirect-container:hover {
   color: #71DFCC;
   border-bottom-color: #71DFCC;
 }
@@ -326,10 +347,12 @@ header > svg {
   border-radius: 1.47px;
   border: none;
   box-shadow: 1px 1px 3px hsla(243, 87%, 12%, 0.4);
+  transition: outline 0.1s ease-in;
 }
 
 .early-access-container > input:focus {
   outline: 1px solid #EF4877;
+  border: none;
 }
 
 .early-access-container > input::placeholder {
@@ -352,6 +375,7 @@ header > svg {
   margin-bottom: 7.1rem;
   border-radius: 1.47px;
   box-shadow: 1px 1px 3px hsla(243, 87%, 12%, 0.4);
+  transition: background-color 0.1s ease-in;
 }
 
 .early-access-container > button:hover {
@@ -414,6 +438,7 @@ header > svg {
   flex-direction: column;
   align-items: baseline;
   gap: 1.6rem;
+  transition: color 0.1s ease-in;
 }
 
 .faq-link-1 {
@@ -452,6 +477,7 @@ header > svg {
   border: 1px solid white;
   border-radius: 50%;
   cursor: pointer;
+  transition: color 0.1s ease-in;
 }
 
 .icon-container > i:hover {
